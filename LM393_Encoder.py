@@ -7,12 +7,11 @@ import time
 
 class Encoder():
     
-    def __init__ (self, Digital_pin, PPR):
+    def __init__ (self, Digital_pin, PPR, max_window = 8):
         ''' Assign D0 Pin of encoder and encoder wheel PPR'''
         self.ppr = PPR
         self.pin = Pin(Digital_pin, Pin.IN)
-        
-        max_window = 8 #Change the size of Avg RPM readings
+    
         self.window = max_window
         self.readings = [0] * max_window
         self.moving_index = 0
